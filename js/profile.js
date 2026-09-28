@@ -14,7 +14,7 @@ const avatarInput = document.querySelector("#avatar-input");
 
 const avatarMessage = document.querySelector("#avatar-message");
 
-const profilePicture = document.querySelector("#profile-picture");
+const profilePictureBox = document.querySelector("#profile-picture-box");
 
 const profilePlaceholder = document.querySelector("#profile-placeholder");
 
@@ -69,7 +69,31 @@ async function getProfile() {
   }
 }
 
+function getProfilePicture() {
+  return document.querySelector("#profile-picture");
+}
+
+function createProfilePicture() {
+  let profilePicture = getProfilePicture();
+
+  if (!profilePicture) {
+    profilePicture = document.createElement("img");
+
+    profilePicture.id = "profile-picture";
+
+    profilePicture.className = "profile-picture";
+
+    profilePicture.alt = "Profile picture";
+
+    profilePictureBox.appendChild(profilePicture);
+  }
+
+  return profilePicture;
+}
+
 function showAvatar(avatar) {
+  const profilePicture = createProfilePicture();
+
   if (avatar.startsWith("http")) {
     profilePicture.src = avatar;
   } else {
@@ -77,14 +101,21 @@ function showAvatar(avatar) {
   }
 
   profilePicture.classList.remove("hidden");
+
   profilePlaceholder.classList.add("hidden");
+
   removeAvatarButton.classList.remove("hidden");
 }
 
 function showPlaceholder() {
-  profilePicture.removeAttribute("src");
-  profilePicture.classList.add("hidden");
+  const profilePicture = getProfilePicture();
+
+  if (profilePicture) {
+    profilePicture.remove();
+  }
+
   profilePlaceholder.classList.remove("hidden");
+
   removeAvatarButton.classList.add("hidden");
 }
 
@@ -142,9 +173,12 @@ avatarInput.addEventListener("change", function () {
 
   const imageUrl = URL.createObjectURL(file);
 
+  const profilePicture = createProfilePicture();
+
   profilePicture.src = imageUrl;
 
   profilePicture.classList.remove("hidden");
+
   profilePlaceholder.classList.add("hidden");
 
   avatarMessage.textContent = "Picture selected. Click Upload Picture.";
@@ -214,6 +248,8 @@ removeAvatarButton.addEventListener("click", async function () {
 
     if (response.ok) {
       showPlaceholder();
+
+      avatarInput.value = "";
 
       avatarMessage.textContent = "Profile picture removed.";
     } else {
