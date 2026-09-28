@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>L0C0 Oy | Student Restaurants</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>L0C0 Oy</h1>
+        <p>Find student restaurants and menus across Finland</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h2>Student Restaurants</h2>
+        <p>Search for a restaurant and view its daily or weekly menu.</p>
+      </section>
+
+      <section class="filters">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search restaurant or city"
+        />
+
+        <div class="filter-row">
+          <select id="city-filter">
+            <option value="all">All cities</option>
+          </select>
+
+          <select id="company-filter">
+            <option value="all">All companies</option>
+            <option value="Sodexo">Sodexo</option>
+            <option value="Compass Group">Compass Group</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="restaurant-list"></section>
+    </main>
+
+    <footer>
+      <p>L0C0 Oy - Student Restaurants in Finland</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

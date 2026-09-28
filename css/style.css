@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Header */
+
+header {
+  background-color: #1f4e5f;
+  color: white;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.header-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  margin-top: 10px;
+}
+
+/* Main content */
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.intro {
+  margin-bottom: 25px;
+}
+
+.intro h2 {
+  margin-bottom: 5px;
+}
+
+.intro p {
+  color: #666;
+}
+
+/* Filters */
+
+.filters {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+
+#search {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+}
+
+select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 16px;
+}
+
+/* Restaurant cards */
+
+.restaurant {
+  background-color: white;
+  padding: 22px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+}
+
+.restaurant h3 {
+  margin-top: 0;
+  color: #1f4e5f;
+}
+
+.restaurant p {
+  line-height: 1.5;
+}
+
+/* Buttons */
+
+button {
+  background-color: #1f4e5f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-right: 6px;
+  margin-top: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #163a47;
+}
+
+/* Menu */
+
+.menu {
+  margin-top: 20px;
+}
+
+.menu h4 {
+  color: #1f4e5f;
+  margin-bottom: 10px;
+}
+
+.course {
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.course:last-child {
+  border-bottom: none;
+}
+
+.course p {
+  margin: 5px 0;
+}
+
+/* Footer */
+
+footer {
+  background-color: #1f4e5f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
