@@ -3,55 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>L0C0 Oy | Student Restaurants</title>
-
+    <title>L0C0 Oy</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
-    <header>
-      <div class="header-content">
-        <h1>L0C0 Oy</h1>
-        <p>Find student restaurants and menus across Finland</p>
+    <header class="header">
+      <nav class="navbar">
+        <a class="logo" href="index.html">L0C0</a>
+
+        <div class="nav-links">
+          <a href="#restaurants">Restaurants</a>
+          <a href="#map-section">Map</a>
+          <a href="#about">About</a>
+          <a id="login-link" href="login.html">Login</a>
+          <a class="profile-link" id="profile-link" href="profile.html"></a>
+
+          <button class="logout-button hidden" id="logout-button">
+            Logout
+          </button>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <p class="hero-small">STUDENT RESTAURANTS IN FINLAND</p>
+
+        <h1>Find your next student meal.</h1>
+
+        <p class="hero-text">
+          Discover student restaurants, check daily and weekly menus, and find a
+          restaurant near you.
+        </p>
+
+        <a class="hero-button" href="#restaurants"> Find Restaurants </a>
       </div>
     </header>
 
     <main>
-      <section class="intro">
-        <h2>Student Restaurants</h2>
-        <p>Search for a restaurant and view its daily or weekly menu.</p>
+      <section class="restaurant-section" id="restaurants">
+        <div class="section-heading">
+          <p class="small-title">RESTAURANTS</p>
+
+          <h2>What are you looking for?</h2>
+
+          <p>
+            Search restaurants by name or city and use the filters to narrow
+            down the results.
+          </p>
+        </div>
+
+        <div class="filters">
+          <input
+            class="search-input"
+            id="search"
+            type="text"
+            placeholder="Search by restaurant name or city"
+          />
+
+          <div class="filter-row">
+            <select class="filter-select" id="city-filter">
+              <option value="all">All cities</option>
+            </select>
+
+            <select class="filter-select" id="company-filter">
+              <option value="all">All companies</option>
+              <option value="Sodexo">Sodexo</option>
+              <option value="Compass Group">Compass Group</option>
+            </select>
+
+            <select class="filter-select" id="favorite-filter">
+              <option value="all">All restaurants</option>
+              <option value="favorites">My favorites</option>
+            </select>
+
+            <button class="reset-button" id="reset-button">Reset</button>
+          </div>
+        </div>
+
+        <div class="location-row">
+          <button class="location-button" id="location-button">
+            Find Nearest Restaurant
+          </button>
+
+          <p class="location-message" id="location-message"></p>
+        </div>
+
+        <div class="results">
+          <p class="restaurant-count" id="restaurant-count">
+            Loading restaurants...
+          </p>
+        </div>
+
+        <div class="restaurant-list" id="restaurant-list"></div>
       </section>
 
-      <section class="filters">
-        <input
-          type="text"
-          id="search"
-          placeholder="Search restaurant or city"
-        />
+      <section class="map-section" id="map-section">
+        <div class="map-content">
+          <div class="section-heading">
+            <p class="small-title">RESTAURANT MAP</p>
 
-        <div class="filter-row">
-          <select id="city-filter">
-            <option value="all">All cities</option>
-          </select>
+            <h2>Find restaurants on the map.</h2>
 
-          <select id="company-filter">
-            <option value="all">All companies</option>
-            <option value="Sodexo">Sodexo</option>
-            <option value="Compass Group">Compass Group</option>
-          </select>
+            <p>Select a city or choose a restaurant to view its location.</p>
+          </div>
 
-          <button id="reset-button">Reset Filters</button>
+          <div class="selected-restaurant">
+            <div class="selected-restaurant-info">
+              <p class="selected-map-title">MAP VIEW</p>
+
+              <h3 id="map-restaurant-name">All restaurant areas</h3>
+
+              <p id="map-restaurant-address">Select a city or restaurant.</p>
+            </div>
+
+            <button
+              class="remove-selection-button hidden"
+              id="remove-selection-button"
+            >
+              Remove Selection
+            </button>
+          </div>
+
+          <iframe
+            class="restaurant-map"
+            id="restaurant-map"
+            title="Restaurant map"
+            loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=19.0%2C59.0%2C32.0%2C70.5&amp;layer=mapnik"
+          ></iframe>
         </div>
       </section>
 
-      <p id="restaurant-count"></p>
+      <section class="about" id="about">
+        <div class="about-content">
+          <div class="about-heading">
+            <p class="small-title">ABOUT L0C0</p>
 
-      <section id="restaurant-list"></section>
+            <h2>Student food made easier to find.</h2>
+
+            <p class="about-text">
+              L0C0 helps students discover student restaurants, check daily and
+              weekly menus, and find restaurants that suit their location and
+              preferences.
+            </p>
+          </div>
+
+          <div class="about-stats">
+            <div class="about-stat">
+              <strong>Daily</strong>
+              <span>Menu information</span>
+            </div>
+
+            <div class="about-stat">
+              <strong>Easy</strong>
+              <span>Restaurant searching</span>
+            </div>
+
+            <div class="about-stat">
+              <strong>Fast</strong>
+              <span>Location discovery</span>
+            </div>
+          </div>
+
+          <div class="about-features">
+            <article class="about-card">
+              <span class="about-number"> 01 </span>
+
+              <h3>Find restaurants</h3>
+
+              <p>
+                Search student restaurants and filter them by city or restaurant
+                provider.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <span class="about-number"> 02 </span>
+
+              <h3>Check menus</h3>
+
+              <p>
+                View available daily and weekly menus before deciding where you
+                want to eat.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <span class="about-number"> 03 </span>
+
+              <h3>Save favorites</h3>
+
+              <p>
+                Sign in and save your favorite restaurants so they are easier to
+                find later.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <p>L0C0 Oy - Student Restaurants in Finland</p>
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">L0C0</div>
+
+          <p>Student restaurants made simple.</p>
+        </div>
+
+        <a href="#restaurants"> Back to restaurants </a>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>

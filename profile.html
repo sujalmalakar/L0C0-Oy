@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | L0C0 Oy</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="login-page">
+    <header class="login-header">
+      <a href="index.html" class="logo"> L0C0 </a>
+
+      <a href="index.html" class="back-link"> Back to restaurants </a>
+    </header>
+
+    <main class="account-main">
+      <div class="account-box">
+        <div class="account-heading">
+          <p class="small-title">MY PROFILE</p>
+
+          <h1>Account information</h1>
+
+          <p>View and update your account information.</p>
+        </div>
+
+        <div class="profile-picture-area">
+          <div class="profile-picture-box">
+            <img
+              id="profile-picture"
+              class="profile-picture hidden"
+              alt="Profile picture"
+            />
+
+            <div id="profile-placeholder" class="profile-placeholder">L0</div>
+          </div>
+
+          <form id="avatar-form">
+            <label for="avatar-input" class="avatar-label">
+              Choose profile picture
+            </label>
+
+            <input type="file" id="avatar-input" accept="image/*" />
+
+            <button type="submit" class="avatar-button">Upload Picture</button>
+            <button
+              type="button"
+              class="remove-avatar-button hidden"
+              id="remove-avatar-button"
+            >
+              Remove Picture
+            </button>
+          </form>
+
+          <p class="account-message" id="avatar-message"></p>
+        </div>
+
+        <form class="account-form" id="profile-form">
+          <label for="profile-username"> Username </label>
+
+          <input type="text" id="profile-username" required />
+
+          <label for="profile-email"> Email </label>
+
+          <input type="email" id="profile-email" required />
+
+          <label for="profile-password"> New password </label>
+
+          <input
+            type="password"
+            id="profile-password"
+            placeholder="Leave empty to keep current password"
+          />
+
+          <button class="account-submit" type="submit">Save Changes</button>
+        </form>
+
+        <p class="account-message" id="profile-message"></p>
+      </div>
+    </main>
+
+    <script src="js/profile.js"></script>
+  </body>
+</html>

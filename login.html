@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | L0C0 Oy</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="login-page">
+    <header class="login-header">
+      <a href="index.html" class="logo"> L0C0 </a>
+
+      <a href="index.html" class="back-link"> Back to restaurants </a>
+    </header>
+
+    <main class="account-main">
+      <div class="account-box">
+        <div class="account-heading">
+          <p class="small-title">YOUR ACCOUNT</p>
+
+          <h1>Welcome to L0C0</h1>
+
+          <p>Login to your account or create a new account.</p>
+        </div>
+
+        <div class="account-buttons">
+          <button class="account-tab active-tab" id="show-login" type="button">
+            Login
+          </button>
+
+          <button class="account-tab" id="show-register" type="button">
+            Register
+          </button>
+        </div>
+
+        <form class="account-form" id="login-form">
+          <label for="login-username"> Username </label>
+
+          <input type="text" id="login-username" required />
+
+          <label for="login-password"> Password </label>
+
+          <input type="password" id="login-password" required />
+
+          <button class="account-submit" type="submit">Login</button>
+        </form>
+
+        <form class="account-form hidden" id="register-form">
+          <label for="register-username"> Username </label>
+
+          <input type="text" id="register-username" required />
+
+          <label for="register-password"> Password </label>
+
+          <input type="password" id="register-password" required />
+
+          <label for="register-email"> Email </label>
+
+          <input type="email" id="register-email" required />
+
+          <button class="account-submit" type="submit">Create Account</button>
+        </form>
+
+        <p class="account-message" id="account-message"></p>
+      </div>
+    </main>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>
