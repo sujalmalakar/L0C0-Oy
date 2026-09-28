@@ -78,6 +78,10 @@ select {
   font-size: 16px;
 }
 
+#reset-button {
+  margin: 0;
+}
+
 #restaurant-count {
   font-weight: bold;
   color: #555;

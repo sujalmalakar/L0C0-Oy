@@ -3,6 +3,7 @@ const search = document.querySelector("#search");
 const cityFilter = document.querySelector("#city-filter");
 const companyFilter = document.querySelector("#company-filter");
 const restaurantCount = document.querySelector("#restaurant-count");
+const resetButton = document.querySelector("#reset-button");
 
 const apiUrl = "https://media2.edu.metropolia.fi/restaurant/api/v1/restaurants";
 
@@ -11,11 +12,9 @@ let restaurants = [];
 async function getRestaurants() {
   try {
     const response = await fetch(apiUrl);
-
     restaurants = await response.json();
 
     createCityOptions();
-
     showRestaurants(restaurants);
   } catch (error) {
     console.log("Restaurant error:", error);
@@ -112,14 +111,11 @@ function showRestaurants(restaurantArray) {
 
 function filterRestaurants() {
   const searchText = search.value.toLowerCase();
-
   const selectedCity = cityFilter.value;
-
   const selectedCompany = companyFilter.value;
 
   const filteredRestaurants = restaurants.filter(function (restaurant) {
     const name = restaurant.name.toLowerCase();
-
     const city = restaurant.city.toLowerCase();
 
     const matchesSearch =
@@ -143,12 +139,19 @@ cityFilter.addEventListener("change", filterRestaurants);
 
 companyFilter.addEventListener("change", filterRestaurants);
 
+resetButton.addEventListener("click", function () {
+  search.value = "";
+  cityFilter.value = "all";
+  companyFilter.value = "all";
+
+  showRestaurants(restaurants);
+});
+
 async function getDailyMenu(restaurantId, menuDiv) {
   const menuUrl = `${apiUrl}/daily/${restaurantId}/en`;
 
   try {
     const response = await fetch(menuUrl);
-
     const menu = await response.json();
 
     menuDiv.innerHTML = "<h4>Daily Menu</h4>";
@@ -167,13 +170,9 @@ async function getDailyMenu(restaurantId, menuDiv) {
             <strong>${course.name}</strong>
           </p>
 
-          <p>
-            Price: ${course.price}
-          </p>
+          <p>Price: ${course.price}</p>
 
-          <p>
-            Diets: ${course.diets || "-"}
-          </p>
+          <p>Diets: ${course.diets || "-"}</p>
 
         </div>
       `;
@@ -190,7 +189,6 @@ async function getWeeklyMenu(restaurantId, menuDiv) {
 
   try {
     const response = await fetch(menuUrl);
-
     const menu = await response.json();
 
     menuDiv.innerHTML = "<h4>Weekly Menu</h4>";
@@ -220,13 +218,9 @@ async function getWeeklyMenu(restaurantId, menuDiv) {
               <strong>${course.name}</strong>
             </p>
 
-            <p>
-              Price: ${course.price}
-            </p>
+            <p>Price: ${course.price}</p>
 
-            <p>
-              Diets: ${course.diets || "-"}
-            </p>
+            <p>Diets: ${course.diets || "-"}</p>
 
           </div>
         `;
